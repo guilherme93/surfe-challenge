@@ -1,0 +1,9 @@
+{
+  "service": {
+    "name": "surfe-api",
+    "version": "1.0.0"
+  },
+  "rest": {
+    "port": 6666
+  }
+}

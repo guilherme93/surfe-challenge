@@ -1,0 +1,76 @@
+run:
+  go: "1.23"
+
+linters-settings:
+  gci:
+    sections:
+      - standard
+      - default
+      - prefix(surfe-actions)
+    skip-generated: true
+  gocyclo:
+    min-complexity: 25
+  maintidx:
+    under: 15
+  goconst:
+    min-len: 3
+    min-occurrences: 3
+  dupl:
+    threshold: 180
+  goimports:
+    local-prefixes: surfe-actions
+  lll:
+    line-length: 180
+  funlen:
+    lines: 100
+    statements: 120
+  nestif:
+    min-complexity: 8
+  gocognit:
+    min-complexity: 40
+  godot:
+    period: false
+
+issues:
+  fix: true
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - testpackage
+        - containedctx
+        - dupl
+        - dupword
+        - lll
+        - musttag
+        - funlen
+        - maintidx
+        - gocognit
+        - nlreturn
+        - govet
+        - gosec
+        - goconst
+        - noctx
+    - linters:
+        - revive
+      text: "blank-imports"
+    - linters:
+        - revive
+      text: "error-strings"
+    - linters:
+        - revive
+      text: "unexported-return"
+
+linters:
+  enable-all: true
+  disable:
+    - paralleltest
+    - varnamelen
+    - ireturn
+    - exhaustruct
+    - depguard
+    - gomoddirectives
+    - wrapcheck
+    - err113
+    - tagliatelle
+    - exportloopref #deprecated
+    - gochecknoglobals
